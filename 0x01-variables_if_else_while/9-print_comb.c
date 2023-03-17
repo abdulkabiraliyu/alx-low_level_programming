@@ -17,11 +17,12 @@ int main(void)
 		putchar(digit);
 		putchar(',');
 		putchar(' ');
-		}
+
 
 		++digit;
 	}
 	putchar('\n');
 
 	return (0);
+
 }
