@@ -1,16 +1,11 @@
 #include "main.h"
 /**
-* main: Entry point
+*  print_alphabet_x10 - prints the a-z in lower case 10 times
 *
-* Description: print_alphabet_x10  prints the a-z in lower case 10 times
-*
-* Return: Success (0)
 */
 
-int main(void)
+void print_alphabet_x10(void)
 {
-	void print_alphabet_x10(void)
-	{
 		int n;
 		char c;
 
@@ -24,7 +19,4 @@ int main(void)
 		_putchar('\n');
 
 		}
-	}
-	return (0);
 }
-

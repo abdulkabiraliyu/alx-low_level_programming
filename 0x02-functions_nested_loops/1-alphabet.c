@@ -1,15 +1,10 @@
 #include "main.h"
 /**
-* main: Entry point
+* print_alphabet - This program prints the a-z in lower case by ustilizing _putchar function
 *
-* Description: This program prints the a-z in lower case by ustilizing _putchar function
-*
-* Return: Success (0)
 */
 
-int main(void)
-{
-	void print_alphabet(void)
+void print_alphabet(void)
 	{
 		char c;
 
@@ -20,6 +15,4 @@ int main(void)
 		_putchar('\n');
 	}
 
-	return (0);
-}
 
