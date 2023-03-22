@@ -10,14 +10,14 @@ int main(void)
 {
 int fib1 = 1, fib2 = 2, fib3, i;
 	_putchar(fib1 + '0');
-	_putchar(' , ');
+	_putchar(',');
 	_putchar(fib2 + '0');
-	_putchar(' , ');
+	_putchar(',');
 	for (i = 3; i <= 98; i++)
 		{
 		fib3 = fib1 + fib2;
 		_putchar(fib3 + '0');
-		_putchar(' , ');
+		_putchar(',');
 		fib1 = fib2;
 		fib2 = fib3;
 		}
