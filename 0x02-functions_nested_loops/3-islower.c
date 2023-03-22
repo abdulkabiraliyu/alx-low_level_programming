@@ -2,6 +2,8 @@
 /**
 * _islower -  check if an input character is lower case
 *
+* @c: input from calling function
+*
 * Return: return  1 if it is lower case or 0 if not
 */
 
