@@ -17,7 +17,7 @@ int fib1 = 1, fib2 = 2, fib3, i;
 		{
 		fib3 = fib1 + fib2;
 
-		printf("%d\n", fib3);
+		printf("%d", fib3);
 		_putchar(',');
 		fib1 = fib2;
 		fib2 = fib3;
