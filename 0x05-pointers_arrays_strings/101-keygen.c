@@ -11,7 +11,10 @@ int main(void)
     const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{};:,.<>/?";
 
     srand(time(NULL)); /* Seed the random number generator with the current time */
-	for(int i = 0; i < PASSWORD_LENGTH; i++)
+
+	int i;
+
+	for( i = 0; i < PASSWORD_LENGTH; i++)
 	{
         password[i] = charset[rand() % (sizeof(charset) - 1)];
     }
