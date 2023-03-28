@@ -11,20 +11,14 @@
 int main(void)
 {
 
-	int N = 10;
+	#define N 10
+
     /* Initialize counter */
     int i = 0;
   
     int randomizer = 0;
   
-    /**
-	* Seed the random-number generator
-    * with current time so that the
-    * numbers will be different every time
-	*/
-    srand((unsigned int)(time(NULL)));
-  
-    /* Array of numbers */
+      /* Array of numbers */
     char numbers[] = "0123456789";
   
     /* Array of small alphabets */
@@ -44,7 +38,15 @@ int main(void)
     * inside the loop
 	*/
     randomizer = rand() % 4;
+    
+	/**
+	* Seed the random-number generator
+    * with current time so that the
+    * numbers will be different every time
+	*/
+    srand((unsigned int)(time(NULL)));
   
+
     /* Iterate over the range [0, N] */
     for (i = 0; i < N; i++) {
   
