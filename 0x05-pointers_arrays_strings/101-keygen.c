@@ -1,27 +1,69 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include  <stdlib.h>
 #include <time.h>
 
-#define PASSWORD_LENGTH 8
+/**
+* main -  generates random password
+*
+* Return: Always 0
+*/
 
 int main(void)
 {
 
-	char password[PASSWORD_LENGTH+1];
-    const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{};:,.<>/?";
-
-    srand(time(NULL)); /* Seed the random number generator with the current time */
-
-	int i;
-
-	for( i = 0; i < PASSWORD_LENGTH; i++)
-	{
-        password[i] = charset[rand() % (sizeof(charset) - 1)];
+	int = N = 10;
+    // Initialize counter
+    int i = 0;
+  
+    int randomizer = 0;
+  
+    // Seed the random-number generator
+    // with current time so that the
+    // numbers will be different every time
+    srand((unsigned int)(time(NULL)));
+  
+    // Array of numbers
+    char numbers[] = "0123456789";
+  
+    // Array of small alphabets
+    char letter[] = "abcdefghijklmnoqprstuvwyzx";
+  
+    // Array of capital alphabets
+    char LETTER[] = "ABCDEFGHIJKLMNOQPRSTUYWVZX";
+  
+    // Array of all the special symbols
+    char symbols[] = "!@#$^&*?";
+  
+    // Stores the random password
+    char password[N];
+  
+    // To select the randomizer
+    // inside the loop
+    randomizer = rand() % 4;
+  
+    // Iterate over the range [0, N]
+    for (i = 0; i < N; i++) {
+  
+        if (randomizer == 1) {
+            password[i] = numbers[rand() % 10];
+            randomizer = rand() % 4;
+            printf("%c", password[i]);
+        }
+        else if (randomizer == 2) {
+            password[i] = symbols[rand() % 8];
+            randomizer = rand() % 4;
+            printf("%c", password[i]);
+        }
+        else if (randomizer == 3) {
+            password[i] = LETTER[rand() % 26];
+            randomizer = rand() % 4;
+            printf("%c", password[i]);
+        }
+        else {
+            password[i] = letter[rand() % 26];
+            randomizer = rand() % 4;
+            printf("%c", password[i]);
+        }
     }
-    password[PASSWORD_LENGTH] = '\0'; /* Add a null terminator to the end of the password string */
-
-    printf("Randomly generated password: %s\n", password);
-
-    return 0;
+return (0);
 }
-
