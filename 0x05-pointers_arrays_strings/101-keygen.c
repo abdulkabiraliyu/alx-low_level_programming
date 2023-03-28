@@ -11,7 +11,7 @@
 int main(void)
 {
 
-	#define N 10
+	#define N 15
 
     /* Initialize counter */
     int i = 0;
