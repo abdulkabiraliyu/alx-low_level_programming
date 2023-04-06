@@ -22,7 +22,7 @@ return (wildcmp(s1 + 1, s2 + 1));
 }
 if (*s2 == '*')
 {
-	while (*s1 != '\0')
+	for ( ; *s1 != '\0'; )
 	{
 	if (wildcmp(s1 + 1, s2 + 1))
 	{
