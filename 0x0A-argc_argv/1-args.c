@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
 	(void) argv; /* un used variable*/
 
-	printf("%d\n", argc-1);
+	printf("%d\n", argc - 1);
 
 
 	return (0);
