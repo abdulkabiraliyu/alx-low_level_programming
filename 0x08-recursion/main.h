@@ -5,5 +5,6 @@ char _putchar(char c);
 void _puts_recursion(char *strn);
 void _print_rev_recursion(char *strn);
 int _strlen_recursion(char *strn);
+int factorial(int n);
 
 #endif /* MAIN_H */
