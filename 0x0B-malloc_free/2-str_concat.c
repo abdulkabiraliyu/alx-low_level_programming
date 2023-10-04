@@ -1,5 +1,5 @@
 #include "main.h"
-#include "stdlib.h"
+#include <stdlib.h>
 
 /**
  * str_concat - append two string together
@@ -18,9 +18,9 @@ char *str_concat(char *s1, char *s2)
 	char *temp_s2  = s2;
 
 	if (s1 == NULL)
-		s1 = " ";
+		s1 = '\0';
 	if (s2 == NULL)
-		s2 = " ";
+		s2 = '\0';
 
 	while (*temp_s1 != '\0')
 	{
