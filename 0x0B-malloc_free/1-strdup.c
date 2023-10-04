@@ -1,6 +1,5 @@
 #include "main.h"
 #include "stdlib.h"
-#include "stdio.h"
 /**
  * _strdup - dupplicate a strings into a dynamic memory
  *
