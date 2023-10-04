@@ -18,9 +18,9 @@ char *str_concat(char *s1, char *s2)
 	char *temp_s2  = s2;
 
 	if (s1 == NULL)
-		s1 = '\0';
+		s1 = " ";
 	if (s2 == NULL)
-		s2 = '\0';
+		s2 = " ";
 
 	while (*temp_s1 != '\0')
 	{
@@ -42,10 +42,7 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 	}
 	for (j = 0; j < l1; j++)
-	{
 		ptr[j] = s1[j];
-	}
-
 
 	for (k = 0; k <= l2; k++)
 	{
