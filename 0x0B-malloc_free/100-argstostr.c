@@ -3,13 +3,13 @@
 #include "stdio.h"
 
 /**
- * argstostr - concatenate all arguments to strings
- *
- * @ac: number of arguments passed
- * @av: pointer to arrays of strings
- *
- * Return: a pointer to new string
- */
+* argstostr - concatenate all arguments to strings
+*
+* @ac: number of arguments passed
+* @av: pointer to arrays of strings
+*
+* Return: a pointer to new string
+*/
 
 char *argstostr(int ac, char **av)
 {
@@ -23,16 +23,15 @@ char *argstostr(int ac, char **av)
 	{
 		while (*av[i] != '\0')
 		{
+
 			len++;
-			av[i]++; 
+			av[i]++;
 		}
 		len++;
 		i++;
-		
-
 
 	}
-	printf("\n%d", len);
+
 	ptr = malloc(sizeof(char) * (len));
 
 	if (ptr == NULL)
@@ -44,22 +43,14 @@ char *argstostr(int ac, char **av)
 		while (*av[j] != '\0')
 		{
 			ptr[k] = *av[j];
-			
+
 			av[j]++;
-
-		}
-
-
-		if (j == (ac - 1))
-		{
 			k++;
-			ptr[k] = '\0';
 		}
-		else
-		{
-			k++;
-			ptr[k]  = '\n';
-		}
+
+		k++;
+		ptr[k]  = '\n';
+
 	}
 	return (ptr);
 }
