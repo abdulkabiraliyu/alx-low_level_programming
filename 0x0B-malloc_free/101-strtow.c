@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * strtow - function that splits a string into words.
@@ -13,95 +12,68 @@
 
 char **strtow(char *str)
 {
-	
-	unsigned int str_len = 0, w_len = 0;
-	unsigned int word_c = 0, j, k, i = 0;
 	char **ptr;
+	unsigned int str_len, word_c = 0, l, i, j, k = 0;
 
-	
-	if(str == NULL || str[0] == '\0')
+	if (str == NULL || str[0] == '\0')
+	{
 		return (NULL);
-
+	}
 	while (str[i] != '\0')
 	{
 		str_len++;
 		i++;
 	}
-	
-	
-	for (i = 0; i <= str_len; i++)
-	{
-		if (str[i] == ' ')
-		{
-			continue;
-		}
 
-		if (str[i] != ' ' && (  str[i + 1] ==  ' ' || str[i+1] == '\0'))
-				{
-					word_c++;
-				
-				}
+	for (i = 0; i < str_len; i++)
+	{
+
+		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
+		{
+			word_c++;
+		}
+	}
+
+	ptr = (char **)malloc(sizeof(char *) * (word_c + 1));
+
+	if (ptr == NULL)
+	{
+		return (NULL);
 
 	}
 
-	ptr = malloc(sizeof(char *) * (word_c + 1));
-	
-	for (i = k = 0; i <= str_len; i++)
-	{
-		
-		
-		if (str[i] == ' ' && str[i-1] == ' ')
-		{
+	k = 0;
 
-			continue;
-		}
-		
+	for (i = j = 0; i < str_len; i++)
+	{
 		if (str[i] != ' ')
 		{
-			w_len++;
-		}
 
-		
-		if ((str[i] == ' ' || str[i] == '\0') && str[i-1] != ' ')
-		{
-			printf("%d\n", w_len);
-		
-			 ptr[k] = malloc(sizeof(char) * (w_len + 1)); 
-				
-			
-			w_len = 0;
+			ptr[k] = (char *)malloc(sizeof(char) * (str_len + 1));
 
 			if (ptr[k] == NULL)
+			{
+				for (l = 0; l < k; l++)
 				{
-					free(ptr[k]);
-					return (NULL);
+					free(ptr[l]);
 				}
+				free(ptr);
+				return (NULL);
+			}
+
+			while (str[i] != ' ' && str[i] != '\0')
+			{
+				ptr[k][j++] = str[i++];
+			}
+
+			ptr[k][j] = '\0';
 			k++;
-		
+			j = 0;
 		}
 	}
-	for (i = j = 0; i <= word_c; i++)
-	{
-		while (str[j] != '\0')
-		{
-			if (str[j] != ' ')
-			{
-				ptr[i][k] = str[j];
-				j++;
-				k++;
-				continue;	
-			}
-			if ((str[j] == ' ' || str[j] == '\0') && str[j-1] != ' ')
-			{
-				ptr[i][k + 1] = '\n';
-				
-				break;
-			}
-			else
-			{
-				j++;
-			}
-		}
-	}
-return (ptr);
+
+	ptr[word_c] = NULL;
+
+	return (ptr);
 }
+
