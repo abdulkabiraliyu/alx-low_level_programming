@@ -12,68 +12,65 @@
 
 char **strtow(char *str)
 {
+
 	char **ptr;
-	unsigned int str_len, word_c = 0, l, i, j, k = 0;
+	unsigned int word_c = 0;
+	unsigned int i, l, j, k = 0;
 
 	if (str == NULL || str[0] == '\0')
 	{
 		return (NULL);
 	}
-	while (str[i] != '\0')
-	{
-		str_len++;
-		i++;
-	}
 
-	for (i = 0; i < str_len; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-
-		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
-		{
+		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0')) {
 			word_c++;
 		}
 	}
 
-	ptr = (char **)malloc(sizeof(char *) * (word_c + 1));
+	ptr = malloc(sizeof(char *) * (word_c + 1));
 
-	if (ptr == NULL)
+	if (ptr == NULL || word_c == 0)
 	{
+		free(ptr);
 		return (NULL);
-
 	}
 
-	k = 0;
-
-	for (i = j = 0; i < str_len; i++)
+	for (i = j = 0; i < word_c; i++)
 	{
-		if (str[i] != ' ')
+		for (k = j; str[k] != '\0'; k++)
 		{
+			if (str[k] == ' ')
+				j++;
 
-			ptr[k] = (char *)malloc(sizeof(char) * (str_len + 1));
-
-			if (ptr[k] == NULL)
+			if (str[k] != ' ' && (str[k + 1] == ' ' || str[k + 1] == '\0'))
 			{
-				for (l = 0; l < k; l++)
+
+				ptr[i] = malloc(sizeof(char) * (k - j + 2));
+
+				if (ptr[i] == NULL)
 				{
-					free(ptr[l]);
+
+					for (l = 0; l < k; l++)
+					{
+						free(ptr[l]);
+					}
+					free(ptr);
+					return (NULL);
 				}
-				free(ptr);
-				return (NULL);
+				break;
+
 			}
 
-			while (str[i] != ' ' && str[i] != '\0')
-			{
-				ptr[k][j++] = str[i++];
-			}
-
-			ptr[k][j] = '\0';
-			k++;
-			j = 0;
 		}
+		for (l = 0; j <= k; j++, l++)
+		{
+			ptr[i][l] = str[j];
+		}
+		ptr[i][l] = '\0';
 	}
-
-	ptr[word_c] = NULL;
+	ptr[i] = NULL;
 
 	return (ptr);
 }
-

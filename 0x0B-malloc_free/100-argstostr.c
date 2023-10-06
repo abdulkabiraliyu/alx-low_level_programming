@@ -1,6 +1,7 @@
 #include "main.h"
-#include "stdlib.h"
-#include "stdio.h"
+#include <stdlib.h>
+
+#include <stdio.h>
 
 /**
 * argstostr - concatenate all arguments to strings
@@ -13,43 +14,45 @@
 
 char *argstostr(int ac, char **av)
 {
-	char *ptr;
-	int len = 0, j, k = 0, i = 0;
+	char *ptr, **tmp_args = av;
+	int len = 0, j, m, k = 0, i = 0;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
 	while (i < ac)
 	{
-		while (*av[i] != '\0')
+		while (*tmp_args[i] != '\0')
 		{
-
 			len++;
-			av[i]++;
+			tmp_args[i]++;
 		}
-		len++;
+	
 		i++;
 
 	}
 
-	ptr = malloc(sizeof(char) * (len));
+	ptr = malloc(sizeof(char) * (len + ac));
 
 	if (ptr == NULL)
-		return (NULL);
-
-
-	for (j = 0; j < ac; j++)
 	{
-		while (*av[j] != '\0')
+		return (NULL);
+		free(ptr);
+	}
+	for (j = m = 0; j < ac; j++)
+	{
+		
+		for (i = 0; av[j][i] !=  '\0'; i++)
 		{
-			ptr[k] = *av[j];
-
-			av[j]++;
+			ptr[k] = av[j][i];
+			printf("H");
 			k++;
 		}
 
 		ptr[k]  = '\n';
+		
 
 	}
+printf("%s", *tmp_args);
 	return (ptr);
 }
