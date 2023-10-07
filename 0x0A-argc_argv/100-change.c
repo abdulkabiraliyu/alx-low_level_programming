@@ -64,7 +64,7 @@ int main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (m < 0)
-			printf("%d\n", 0);
+			printf("0\n");
 
 		n = get_change(m);
 
