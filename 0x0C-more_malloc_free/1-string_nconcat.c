@@ -1,17 +1,17 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
+
 
 /**
- * string_nconcat - concatenate two strings
- *
- * @s1: input string 1
- * @s2: input= string 2
- *
- * @n: number of characters to be copied from s2
- *
- * Return: pointer to the new string
- */
+* string_nconcat - concatenate two strings
+*
+* @s1: input string 1
+* @s2: input= string 2
+*
+* @n: number of characters to be copied from s2
+*
+* Return: pointer to the new string
+*/
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
