@@ -1,6 +1,48 @@
 #include "dog.h"
 #include <stdlib.h>
 #include <stdio.h>
+/**
+* str_len - check the length of strings
+*
+* @s: string input
+*
+* Return: string length
+*/
+
+int str_len(char *s)
+{
+	int length = 0;
+
+	while (*s++)
+	{
+		length++;
+	}
+
+	return (length);
+}
+
+/**
+* cp_mem - copy one string to another
+*
+* @dest: destination string
+* @source: origin string
+*
+* Return: destination
+*/
+
+char *cp_mem(char *dest, char *source)
+{
+	int i;
+
+	for (i = 0; source[i]; i++)
+	{
+		dest[i] = source[i];
+
+	}
+	dest[i] = '\0';
+
+return (dest);
+}
 
 /**
 * new_dog - it creates a new dog
@@ -20,12 +62,36 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	dog_t *ptr;
 
-	ptr = malloc(sizeof(dog_t));
+	if (n != NULL && o != NULL && a > 0)
+	{
+		ptr = malloc(sizeof(dog_t));
 
-	(*ptr).name = n;
-	(*ptr).age = a;
-	(*ptr).owner = o;
+		if (ptr == NULL)
+			return (NULL);
 
-return (ptr);
+		(*ptr).name = malloc(sizeof(char) * (str_len(n) + 1));
+		if ((*ptr).name == NULL)
+		{
+			free((*ptr).name);
+			free(ptr);
+			return (NULL);
+		}
 
+		(*ptr).owner = malloc(sizeof(char) * (str_len(o) + 1));
+		if ((*ptr).owner == NULL)
+		{
+			free((*ptr).owner);
+			free(ptr);
+			return (NULL);
+		}
+
+		ptr->name = cp_mem(ptr->name, n);
+		ptr->age = a;
+		ptr->owner = cp_mem(ptr->owner, o);
+
+		return (ptr);
+
+	}
+
+return (NULL);
 }
