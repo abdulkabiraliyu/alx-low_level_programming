@@ -12,10 +12,10 @@ void print_dog(struct dog *d)
 	char *n = (*d).name;
 	float a = (*d).age;
 	char *o = (*d).owner;
-			
-	
+
+
 	if (d == NULL)
-		return (NULL);
+		exit(98);
 
 	if (n == NULL)
 		printf("Name: (Nil)\n");
