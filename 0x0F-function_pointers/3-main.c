@@ -17,11 +17,6 @@ int main(int argc, char **argv)
 	char *op;
 	int (*f_ptr)(int, int);
 
-	if (argv == NULL)
-	{
-		printf("Error\n");
-		exit(99);
-	}
 
 	if (argc != 4)
 	{
